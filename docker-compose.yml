@@ -9,6 +9,8 @@ services:
         target: 3000
         protocol: tcp
         mode: ingress
+    depends_on:
+      - redis
     deploy:
       replicas: 3
 
