@@ -1,6 +1,8 @@
 services:
   app:
     image: socketio-app:latest
+    networks:
+      - my_net
     ports:
       # - 3000:3000
       - published: 3000
@@ -9,3 +11,14 @@ services:
         mode: ingress
     deploy:
       replicas: 3
+
+  redis:
+    image: redis:latest
+    networks:
+      - my_net
+    ports:
+      - 6379:6379
+
+networks:
+  my_net:
+    driver: overlay
