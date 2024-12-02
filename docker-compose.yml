@@ -2,6 +2,10 @@ services:
   app:
     image: socketio-app:latest
     ports:
-      - 3000:3000
+      # - 3000:3000
+      - published: 3000
+        target: 3000
+        protocol: tcp
+        mode: ingress
     deploy:
       replicas: 3
