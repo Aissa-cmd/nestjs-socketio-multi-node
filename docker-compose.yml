@@ -10,8 +10,7 @@ services:
         protocol: tcp
         mode: ingress
     depends_on:
-      redis:
-        condition: service_healthy
+      - redis
     deploy:
       replicas: 3
 
