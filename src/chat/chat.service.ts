@@ -56,6 +56,7 @@ export class ChatService {
       };
       client.emit('user-connected', {
         message: 'Welcome to the server',
+        serviceId: this.serviceId,
       });
     } catch (error) {
       this.logger.error(error);
