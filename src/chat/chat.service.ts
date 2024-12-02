@@ -34,26 +34,26 @@ export class ChatService {
   async handleConnection(client: Socket) {
     try {
       this.logger.log(`Socket ${client.id} connected to the server`);
-      const {
-        email,
-        password,
-      }: {
-        email?: string;
-        password?: string;
-      } = client.handshake.auth;
-      if (isEmpty(email) || isEmpty(password)) {
-        throw new Error('Credentials not provided');
-      }
-      const user = users.find(
-        (u) => u.email === email.toLowerCase() && u.password === password,
-      );
-      if (!user) {
-        throw new Error('Invalid Credentials');
-      }
-      client.data.user = {
-        id: user.id,
-        email: user.email,
-      };
+      // const {
+      //   email,
+      //   password,
+      // }: {
+      //   email?: string;
+      //   password?: string;
+      // } = client.handshake.auth;
+      // if (isEmpty(email) || isEmpty(password)) {
+      //   throw new Error('Credentials not provided');
+      // }
+      // const user = users.find(
+      //   (u) => u.email === email.toLowerCase() && u.password === password,
+      // );
+      // if (!user) {
+      //   throw new Error('Invalid Credentials');
+      // }
+      // client.data.user = {
+      //   id: user.id,
+      //   email: user.email,
+      // };
       client.emit('user-connected', {
         message: 'Welcome to the server',
         serviceId: this.serviceId,
