@@ -1,0 +1,7 @@
+services:
+  app:
+    image: socketio-app:latest
+    ports:
+      - 3000:3000
+    deploy:
+      replicas: 3
